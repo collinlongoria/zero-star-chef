@@ -19,7 +19,7 @@ public partial class Chef : CharacterBody2D
 	private RayCast2D _rayCast;
 	
 	// Current held item
-	private Node _heldItem = null;
+	private Item _heldItem = null;
 	
 
 	public override void _Ready()
@@ -29,6 +29,8 @@ public partial class Chef : CharacterBody2D
 		
 		// Get raycast
 		_rayCast = GetNodeOrNull<RayCast2D>("Interact Ray");
+
+		SignalBus.Instance.AddItemRequest += AddItem;
 	}
 
 	public override void _Process(double delta)
@@ -156,8 +158,30 @@ public partial class Chef : CharacterBody2D
 		}
 	}
 
-	public Node GetHeldItem()
+	private void AddItem(string item)
+	{
+		if (_heldItem != null)
+		{
+			GD.Print("Chef already has an item!");
+			return;
+		}
+
+		if (item == "Plate")
+		{
+			var curr = ResourceLoader.Load("res://Resources/Items/Plate.tres") as ItemData;
+			var plate = new Item();
+			plate.Data = curr;
+			AddChild(plate);
+		}
+	}
+	
+	public Item GetHeldItem()
 	{
 		return _heldItem;
+	}
+
+	public bool HasHeldItem()
+	{
+		return _heldItem != null;
 	}
 }

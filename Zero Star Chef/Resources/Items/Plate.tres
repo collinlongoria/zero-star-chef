@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bxf5tje25ruqs"]
+
+[ext_resource type="Script" uid="uid://4b8jlsjnskkp" path="res://Resources/ItemData.cs" id="1_54wlo"]
+[ext_resource type="Texture2D" uid="uid://slg06q500tht" path="res://Assets/plate.png" id="1_iapy1"]
+
+[resource]
+script = ExtResource("1_54wlo")
+ItemName = "Plate"
+ItemSprite = ExtResource("1_iapy1")
+metadata/_custom_type_script = "uid://4b8jlsjnskkp"
