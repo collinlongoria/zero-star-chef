@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://v76uikx513bl"]
+
+[ext_resource type="Script" uid="uid://2vilvpue5isb" path="res://Scripts/Countertop.cs" id="1_7i1xd"]
+[ext_resource type="Texture2D" uid="uid://3wgxfi0g0atb" path="res://Assets/countertop.png" id="1_76v0i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7i1xd"]
+size = Vector2(16, 16)
+
+[node name="Countertop" type="StaticBody2D"]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("1_7i1xd")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_76v0i")
+
+[node name="Body" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7i1xd")
