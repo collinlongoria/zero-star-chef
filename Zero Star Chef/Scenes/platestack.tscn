@@ -18,7 +18,6 @@ texture = ExtResource("1_ii8u5")
 [node name="Plate Sprite" type="Sprite2D" parent="Sprite"]
 texture_filter = 1
 position = Vector2(0, -4)
-scale = Vector2(0.75, 0.875)
 texture = ExtResource("2_i5v3u")
 
 [node name="Body" type="CollisionShape2D" parent="."]
