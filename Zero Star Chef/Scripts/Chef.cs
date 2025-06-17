@@ -24,6 +24,9 @@ public partial class Chef : CharacterBody2D
 
 	public override void _Ready()
 	{
+		// MUST be done
+		Global.Instance.Player = this;
+		
 		// Get animated sprite
 		_sprite = GetNodeOrNull<AnimatedSprite2D>("Sprite");
 		
@@ -172,6 +175,7 @@ public partial class Chef : CharacterBody2D
 			var plate = new Item();
 			plate.Data = curr;
 			AddChild(plate);
+			_heldItem = plate;
 		}
 	}
 	
