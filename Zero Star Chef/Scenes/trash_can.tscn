@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dm2c3s1fd88gk"]
+
+[ext_resource type="Texture2D" uid="uid://ojskxr3opyie" path="res://Assets/trashcan.png" id="1_yk8j1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3ghh"]
+size = Vector2(16, 16)
+
+[node name="Trash Can" type="StaticBody2D"]
+y_sort_enabled = true
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_yk8j1")
+
+[node name="Body" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_t3ghh")

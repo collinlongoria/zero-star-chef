@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy6lhdle8hl2o"]
+
+[ext_resource type="Texture2D" uid="uid://c7jxlp4r84ysd" path="res://Assets/dialogue3.png" id="1_l8qb8"]
+[ext_resource type="FontFile" uid="uid://copbd5jwo33r" path="res://Assets/Tiny5-Regular.ttf" id="2_kyvu4"]
+
+[node name="Dialogue Box" type="Node2D"]
+z_index = 3
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(310, 48)
+texture = ExtResource("1_l8qb8")
+
+[node name="Ui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 96.0
+offset_bottom = 64.0
+
+[node name="Text" type="RichTextLabel" parent="Ui"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 608.0
+offset_bottom = 88.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_kyvu4")
+theme_override_font_sizes/normal_font_size = 16
+text = "We mistakenly got a shipment of a bunch of random vegetables. Just throw them in a pot with some flavor crystals – and maybe scare a vampire."
+scroll_active = false

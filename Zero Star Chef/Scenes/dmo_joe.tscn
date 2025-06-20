@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://be4n8ibfe3s0y"]
+
+[ext_resource type="Texture2D" uid="uid://ca64pp6ikur" path="res://Assets/dmo.png" id="1_qq2qp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvlfm"]
+atlas = ExtResource("1_qq2qp")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n33y6"]
+atlas = ExtResource("1_qq2qp")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ooota"]
+atlas = ExtResource("1_qq2qp")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gd0v4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvlfm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n33y6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ooota")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4r3v"]
+size = Vector2(16, 16)
+
+[node name="DMO Joe" type="StaticBody2D"]
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_gd0v4")
+
+[node name="Body" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_i4r3v")

@@ -7,7 +7,6 @@
 size = Vector2(16, 16)
 
 [node name="Countertop" type="StaticBody2D"]
-z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_7i1xd")
 

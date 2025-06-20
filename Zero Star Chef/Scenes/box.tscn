@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://k04p6swrsyvp"]
+
+[ext_resource type="Texture2D" uid="uid://whprs2umvc2f" path="res://Assets/box2.png" id="1_ego7h"]
+[ext_resource type="Texture2D" uid="uid://hp83jpai2vqo" path="res://Assets/box.png" id="1_xkb4e"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2jyye"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ego7h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_xkb4e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3ghh"]
+size = Vector2(16, 16)
+
+[node name="Box" type="StaticBody2D"]
+y_sort_enabled = true
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_2jyye")
+
+[node name="Body" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
+shape = SubResource("RectangleShape2D_t3ghh")

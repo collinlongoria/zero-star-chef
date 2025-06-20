@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://g2vh8u0n53lu"]
+
+[ext_resource type="Texture2D" uid="uid://cary2vvu2i7xe" path="res://Assets/oven.png" id="1_daval"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oagqy"]
+atlas = ExtResource("1_daval")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02csr"]
+atlas = ExtResource("1_daval")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0f1pq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oagqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02csr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3ghh"]
+size = Vector2(16, 16)
+
+[node name="Oven" type="StaticBody2D"]
+y_sort_enabled = true
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0f1pq")
+
+[node name="Body" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_t3ghh")

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dke3848hr6rkn"]
+
+[ext_resource type="Texture2D" uid="uid://bcdcxebomqe22" path="res://Assets/servingcounter.png" id="1_bua6l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3ghh"]
+size = Vector2(16, 16)
+
+[node name="Serving Counter" type="StaticBody2D"]
+y_sort_enabled = true
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_bua6l")
+
+[node name="Body" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_t3ghh")

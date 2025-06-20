@@ -134,12 +134,10 @@ animations = [{
 size = Vector2(6, 3)
 
 [node name="Chef" type="CharacterBody2D"]
-z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_v0fah")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
-y_sort_enabled = true
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_bpyi8")
 animation = &"walking_right"
@@ -154,4 +152,5 @@ target_position = Vector2(0, 12)
 collide_with_areas = true
 
 [node name="Camera" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
 metadata/_edit_lock_ = true

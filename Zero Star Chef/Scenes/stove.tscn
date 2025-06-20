@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://cj3viwdkickl2"]
+
+[ext_resource type="Texture2D" uid="uid://5k5lcld6mi5r" path="res://Assets/stovetop.png" id="1_i7l3s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7l3s"]
+atlas = ExtResource("1_i7l3s")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qts4r"]
+atlas = ExtResource("1_i7l3s")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4yp81"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7l3s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qts4r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3ghh"]
+size = Vector2(16, 16)
+
+[node name="Stove" type="StaticBody2D"]
+y_sort_enabled = true
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4yp81")
+
+[node name="Body" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_t3ghh")
