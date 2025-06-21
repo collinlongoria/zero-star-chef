@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 
 SignalBus="*res://Scripts/SignalBus.cs"
 Global="*res://Scripts/Global.cs"
+Dialogue="*res://Scripts/Dialogue.cs"
 
 [display]
 

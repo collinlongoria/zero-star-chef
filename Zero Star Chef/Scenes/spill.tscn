@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3v6f0goip2li"]
+[gd_scene load_steps=4 format=3 uid="uid://b3v6f0goip2li"]
 
 [ext_resource type="Texture2D" uid="uid://don3wevwdsc70" path="res://Assets/spill.png" id="1_788xa"]
+[ext_resource type="Script" uid="uid://bnaauwx0df11i" path="res://Scripts/Spill.cs" id="1_y512g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y512g"]
 size = Vector2(16, 48)
 
 [node name="Spill" type="StaticBody2D"]
+script = ExtResource("1_y512g")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_788xa")

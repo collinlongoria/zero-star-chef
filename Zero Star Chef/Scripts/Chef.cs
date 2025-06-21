@@ -15,12 +15,15 @@ public partial class Chef : CharacterBody2D
 	// save the last known state, so we don't update animation every frame
 	private Direction _lastDirection;
 	private State _lastState;
+
+	private bool _inDialogue = false;
 	
 	private RayCast2D _rayCast;
 	
 	// Current held item
 	private Item _heldItem = null;
-	
+
+	private float _inputCooldown = 0f;
 
 	public override void _Ready()
 	{
@@ -34,6 +37,16 @@ public partial class Chef : CharacterBody2D
 		_rayCast = GetNodeOrNull<RayCast2D>("Interact Ray");
 
 		SignalBus.Instance.AddItemRequest += AddItem;
+		SignalBus.Instance.DialogueRequest += (string id) =>
+		{
+			_ = id; // no need it >:(
+			_inDialogue = true;
+		};
+		SignalBus.Instance.DialogueFinished += () =>
+		{
+			_inDialogue = false; 
+			_inputCooldown = 0.1f;
+		};
 	}
 
 	public override void _Process(double delta)
@@ -45,8 +58,14 @@ public partial class Chef : CharacterBody2D
 			_lastState = _state;
 		}
 
-		if (Input.IsActionJustPressed("interact"))
+		if (Input.IsActionJustPressed("interact") && !_inDialogue)
 		{
+			if (_inputCooldown > 0f)
+			{
+				_inputCooldown -= (float)delta;
+				return;
+			}
+			
 			if (_rayCast != null)
 			{
 				if (_rayCast.IsColliding())
@@ -68,23 +87,23 @@ public partial class Chef : CharacterBody2D
 	{
 		Vector2 velocity = Vector2.Zero;
 
-		if (Input.IsActionPressed("move_left"))
+		if (Input.IsActionPressed("move_left") && !_inDialogue)
 		{
 			velocity.X -= 1;
 			_direction = Direction.Left;
 		}
-		else if (Input.IsActionPressed("move_right"))
+		else if (Input.IsActionPressed("move_right")&& !_inDialogue)
 		{
 			velocity.X += 1;
 			_direction = Direction.Right;
 		}
 
-		if (Input.IsActionPressed("move_front"))
+		if (Input.IsActionPressed("move_front") && !_inDialogue)
 		{
 			velocity.Y += 1;
 			_direction = Direction.Front;
 		}
-		else if (Input.IsActionPressed("move_back"))
+		else if (Input.IsActionPressed("move_back") && !_inDialogue)
 		{
 			velocity.Y -= 1;
 			_direction = Direction.Back;
@@ -98,6 +117,7 @@ public partial class Chef : CharacterBody2D
 
 		if (velocity.Length() > 0)
 		{
+			if (_inputCooldown > 0f) _inputCooldown = 0f;
 			velocity = velocity.Normalized() * Speed;
 		}
 		
@@ -167,15 +187,6 @@ public partial class Chef : CharacterBody2D
 		{
 			GD.Print("Chef already has an item!");
 			return;
-		}
-
-		if (item == "Plate")
-		{
-			var curr = ResourceLoader.Load("res://Resources/Items/Plate.tres") as ItemData;
-			var plate = new Item();
-			plate.Data = curr;
-			AddChild(plate);
-			_heldItem = plate;
 		}
 	}
 	

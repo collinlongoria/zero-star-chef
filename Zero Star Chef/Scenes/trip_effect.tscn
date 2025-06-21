@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://crcjsnm4wxpux"]
+
+[ext_resource type="Shader" uid="uid://be2yuexcq06y0" path="res://Resources/trip.gdshader" id="1_avgwq"]
+[ext_resource type="Script" uid="uid://bpk5bgd3a8nrc" path="res://Scripts/TripEffect.cs" id="2_pns2p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hmrpf"]
+shader = ExtResource("1_avgwq")
+shader_parameter/time = 112446.0
+shader_parameter/resolution = Vector2(1864, 805)
+
+[node name="Trip Effect" type="ColorRect"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_hmrpf")
+offset_right = 640.0
+offset_bottom = 360.0
+script = ExtResource("2_pns2p")

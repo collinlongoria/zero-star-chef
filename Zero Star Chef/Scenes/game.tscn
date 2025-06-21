@@ -1,6 +1,7 @@
-[gd_scene load_steps=27 format=4 uid="uid://7l5d0t2q3as1"]
+[gd_scene load_steps=28 format=4 uid="uid://7l5d0t2q3as1"]
 
 [ext_resource type="Texture2D" uid="uid://vrfongjn5i4f" path="res://Assets/diningroom.png" id="1_wowpa"]
+[ext_resource type="PackedScene" uid="uid://dcy2mf6sd8rhy" path="res://Scenes/arm.tscn" id="2_exi56"]
 [ext_resource type="Texture2D" uid="uid://blmya1xt12vrf" path="res://Assets/freezer.png" id="2_i6g32"]
 [ext_resource type="Texture2D" uid="uid://b1julv13dtspl" path="res://Assets/pantry.png" id="3_1l0tm"]
 [ext_resource type="Texture2D" uid="uid://cnstovg0bq8s8" path="res://Assets/tileset.png" id="4_v158k"]
@@ -169,10 +170,13 @@ y_sort_enabled = true
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 0
-visible = false
 
 [node name="Dialogue Box" parent="UI" instance=ExtResource("9_h4fw4")]
 position = Vector2(8, 248)
+
+[node name="Arm" parent="UI" instance=ExtResource("2_exi56")]
+position = Vector2(592, 360)
+scale = Vector2(4, 4)
 
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true

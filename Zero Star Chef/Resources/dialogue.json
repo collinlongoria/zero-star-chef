@@ -1,0 +1,265 @@
+{
+	"dialogue": [
+		{
+			"id": "spill_1",
+			"content": "There is a mysterious liquid spilled across the ground, keeping you from reaching the DMO area. Lick it?",
+			"results": {
+				"Lick": "spill_2",
+				"Do Not Lick": "end"
+			}
+		},
+		{
+			"id": "spill_2",
+			"content": "It tasted like a mysterious liquid.",
+			"results": {
+				"end": "end"
+			}
+		},
+		{
+			"id": "grab_prompt",
+			"content": "Take the ingredient?",
+			"results": {
+				"Yes": "grab_item",
+				"No": "end"
+			}
+		},
+		{
+			"id": "bread",
+			"content": "Fluffy thing that is dry on the outside, and squishy on the inside. It looks perfect for holding edible things together.",
+			"results": {
+				"end": "grab_prompt"
+			}
+		},
+		{
+			"id": "pastry",
+			"content": "Flaky paper thingy. Pretty sure it’s some kind of bread, or just fancy cardboard.",
+			"results": {
+				"end": "grab_prompt"
+			}
+		},
+		{
+			"id": "beef",
+			"content": "A big chunk of something red and firm. I've been informed it used to moo.",
+			"results": {
+				"end": "grab_prompt"
+			}
+		},
+		{
+			"id": "cheese",
+			"content": "This is definitely cheese, but earlier I could have sworn it whispered something to me. So, this is definitely sentient cheese. It has feelings and dreams.",
+			"results": {
+				"end": "grab_prompt"
+			}
+		},
+		{
+			"id": "mixed lettuce",
+			"content": "A bunch of green leaves. They look crunchy, and taste like grass.",
+			"results": {
+				"end": "grab_prompt"
+			}
+		},
+		{
+			"id": "tomato",
+			"content": "Round, wet, red thing... fruit? Vegetable? Confused berry?",
+			"results": {
+				"end": "grab_prompt"
+			}
+		},
+		{
+			"id": "house_sauce",
+			"content": "Some sort of 'sauce'. Not sure it is entirely edible... or what it could even possibly be used for.",
+			"results": {
+				"end": "grab_prompt"
+			}
+		},
+		{
+			"id": "fruit_medley",
+			"content": "A bunch of bright squishy objects. Possibly candy, possibly plants. Tastes like a rainbow of color!",
+			"results": {
+				"end": "grab_prompt"
+			}
+		},
+		{
+			"id": "pine_nuts",
+			"content": "Ah yes, of course. These are the seeds from the pinecone of the Colorado pinyon, otherwise known as the Pinus edulis. Glad my biology degree finally paid off!",
+			"results": {
+				"end": "grab_prompt"
+			}
+		},
+		{
+			"id": "cucumber",
+			"content": "Some sort of long green thing. It looks like, with a little hope and determination, it could be a pickle if it wanted to.",
+			"results": {
+				"end": "grab_prompt"
+			}
+		},
+		{
+			"id": "vinegar",
+			"content": "Some sort of angry, tangy liquid. Smells like sadness and sour grapes. Drinkability: unclear.",
+			"results": {
+				"end": "grab_prompt"
+			}
+		},
+		{
+			"id": "salt",
+			"content": "White sandy grit. Despite its look, it doesn’t taste like sand. Is this sugar?",
+			"results": {
+				"end": "grab_prompt"
+			}
+		},
+		{
+			"id": "mushrooms",
+			"content": "Little brown hats, probably safe fungus... but nobody warned me if they were poison.",
+			"results": {
+				"end": "grab_prompt"
+			}
+		},
+		{
+			"id": "chicken",
+			"content": "Pale chunks of meat from an animal that looks like it used to fly. Like... a flying cow!",
+			"results": {
+				"end": "grab_prompt"
+			}
+		},
+		{
+			"id": "pasta",
+			"content": "A bunch of thin yellow strings. They break when I try to break them. Simply put, they need nourishment and possibly the love of a grandma.",
+			"results": {
+				"end": "grab_prompt"
+			}
+		},
+		{
+			"id": "cream",
+			"content": "Looks entirely like milk. But like... fatter. Fat milk. Big fat milk. Sorry – I am being rude. To the milk. Fat milk.",
+			"results": {
+				"end": "grab_prompt"
+			}
+		},
+		{
+			"id": "garlic",
+			"content": "Strong smelling onion-ish lump. Even a small amount made my breath terrifying.",
+			"results": {
+				"end": "grab_prompt"
+			}
+		},
+		{
+			"id": "sugar",
+			"content": "Small white crystals. Despite its look, it doesn’t taste like sand. Is this salt?",
+			"results": {
+				"end": "grab_prompt"
+			}
+		},
+		{
+			"id": "butter",
+			"content": "Yellowish creamy brick. Probably made of cream that has been violently reshaped – what the hell does it want?",
+			"results": {
+				"end": "grab_prompt"
+			}
+		},
+		{
+			"id": "trip_inspect",
+			"content": "Aajhsodi AISDOInjkdn iAOKSnkng kNASDlmn khpAs  paojsd ??????",
+			"results": {
+				"end": "grab_prompt"
+			}
+		},
+		{
+			"id": "cheeseburger",
+			"content": "At a stove, take some steak and dairy, put it between some loaf.",
+			"results": {
+				"end": "end"
+			}
+		},
+		{
+			"id": "house_salad",
+			"content": "In a bowl, throw together some greens, throw in some red – sliced – and then finish it off with some 'sauce'.",
+			"results": {
+				"end": "end"
+			}
+		},
+		{
+			"id": "fruit_salad",
+			"content": "In a bowl, throw together some greens, then add some other colors. Toss in some of those nuts (hehe) we got last week.",
+			"results": {
+				"end": "end"
+			}
+		},
+		{
+			"id": "cucumber_salad",
+			"content": "In a bowl, throw together some of that pre-pickle, then add some flavor crystals make it tangy.",
+			"results": {
+				"end": "end"
+			}
+		},
+		{
+			"id": "beef_wellington",
+			"content": "Smother some steak with the fungi, then cover that in some dough. Put it in the oven.",
+			"results": {
+				"end": "end"
+			}
+		},
+		{
+			"id": "chicken_marsala",
+			"content": "Take the little bird fella and smother it in fungi and 'sauce'. Put it in the oven.",
+			"results": {
+				"end": "end"
+			}
+		},
+		{
+			"id": "spaghetti_with_balls",
+			"content": "Turn the cow into balls (hehe), then add it to some noodles covered in red. Oh, do this at the stove.",
+			"results": {
+				"end": "end"
+			}
+		},
+		{
+			"id": "mac_and_cheese",
+			"content": "At the stove, cook some noodle, with a creamy and cheesy sauce.",
+			"results": {
+				"end": "end"
+			}
+		},
+		{
+			"id": "tomato_soup",
+			"content": "At the stove, heat a bowl of red, and make it creamy. Scare a vampire for flavor.",
+			"results": {
+				"end": "end"
+			}
+		},
+		{
+			"id": "stir_fry",
+			"content": "We mistakenly got a shipment of a bunch of random vegetables. Go to the stove and just throw them in a pot with some flavor crystals – and maybe scare a vampire.",
+			"results": {
+				"end": "end"
+			}
+		},
+		{
+			"id": "shortbread_cookies",
+			"content": "They want a dessert. Add some flavor crystals and give it a churn. Toss it all in the oven",
+			"results": {
+				"end": "end"
+			}
+		},
+		{
+			"id": "candied_figs",
+			"content": "They want a dessert. Add some colors and cover it in 'sauce'. Mix it together in a bowl and serve.",
+			"results": {
+				"end": "end"
+			}
+		},
+		{
+			"id": "blueberry_tart",
+			"content": "They want a dessert. Add some colors and throw it all in some dough. Then, put it in the oven.",
+			"results": {
+				"end": "end"
+			}
+		},
+		{
+			"id": "",
+			"content": "",
+			"results": {
+				"end": "end"
+			}
+		}
+	]
+}
