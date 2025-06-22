@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 public partial class DialogueBox : Node2D
 {
@@ -14,7 +15,7 @@ public partial class DialogueBox : Node2D
 	private string _displayBuffer = "";
 
 	private bool _instant = false;
-	private float _scrollSpeed = 0.05f;
+	private float _scrollSpeed = 0.015f;
 
 	private bool _running = false;
 	private bool _finished = false;
@@ -88,6 +89,83 @@ public partial class DialogueBox : Node2D
 						SignalBus.Instance.EmitDialogueFinished();
 						Visible = false;
 					}
+					else if (resultOutput == "insert_item")
+					{
+						var curr = Global.Instance.Player.GetLastInteracted();
+						if (curr.IsInGroup("Cooker") && curr.HasMethod("Add"))
+						{
+							curr.Call("Add");
+							SignalBus.Instance.EmitRemoveItemRequest();
+							
+							SignalBus.Instance.EmitDialogueFinished();
+							Visible = false;
+						}
+					}
+					else if (resultOutput == "trash")
+					{
+						SignalBus.Instance.EmitRemoveItemRequest();
+						
+						SignalBus.Instance.EmitDialogueFinished();
+						Visible = false;
+					}
+					else if (resultOutput == "empty_items")
+					{
+						var curr = Global.Instance.Player.GetLastInteracted();
+						if (curr.IsInGroup("Cooker") && curr.HasMethod("Empty"))
+						{
+							curr.Call("Empty");
+							
+							SignalBus.Instance.EmitDialogueFinished();
+							Visible = false;
+						}
+					}
+					else if (resultOutput == "send")
+					{
+						// i do not care anymore
+						// i can barely keep my eyes open
+						// you should be grateful to be getting code at all
+						Global.Instance.Player.GetLastInteracted().Call("PlaceDish");
+
+						SignalBus.Instance.EmitDialogueFinished();
+						Visible = false;
+					}
+					else if (resultOutput == "judged")
+					{
+						Global.Instance.Player.GetLastInteracted().Call("SubmitCorrectItem");
+						
+						SignalBus.Instance.EmitDialogueFinished();
+						Visible = false;
+					}
+					else if (resultOutput == "grab_item")
+					{
+						// Player is trying to take an item.
+						// First, determine if the player already has an item.
+						// If so, prompt for switch. If they don't, just give it to them.
+						var player = Global.Instance.Player;
+						if (player.HasHeldItem() && !player.GetLastInteracted().IsInGroup("Cooker")) PlayDialogue("switch_prompt");
+
+						else
+						{
+							SignalBus.Instance.EmitAddItemRequest();
+
+							SignalBus.Instance.EmitDialogueFinished();
+							Visible = false;
+						}
+					}
+					else if (resultOutput == "end_surprise")
+					{
+						SignalBus.Instance.EmitBeginTrip();
+						Global.Instance.TripEffect.Visible = true;
+						
+						SignalBus.Instance.EmitDialogueFinished();
+						Visible = false;
+					}
+					else if (resultOutput == "switch_item")
+					{
+						SignalBus.Instance.EmitAddItemRequest();
+						SignalBus.Instance.EmitDialogueFinished();
+						Visible = false;
+					}
 					else
 					{
 						PlayDialogue(resultOutput);
@@ -106,12 +184,12 @@ public partial class DialogueBox : Node2D
 		// Input for choices
 		if (_choiceContainer.Visible)
 		{
-			if (Input.IsActionJustPressed("move_left"))
+			if (Input.IsActionJustPressed("move_right"))
 			{
 				_currentResultIdx = (_currentResultIdx + 1) % _results.Count;
 				UpdateChoiceHighlight();
 			}
-			else if (Input.IsActionJustPressed("move_right"))
+			else if (Input.IsActionJustPressed("move_left"))
 			{
 				_currentResultIdx = (_currentResultIdx - 1 + _results.Count) % _results.Count;
 				UpdateChoiceHighlight();
@@ -131,8 +209,24 @@ public partial class DialogueBox : Node2D
 			{
 				_results.Add(key);
 			}
+
+			var content = _currentNode.Content;
+			var thing = Global.Instance.Player.GetLastInteracted();
+			if (thing.IsInGroup("Cooker"))
+			{
+				var num_items = thing.Call("GetNumItems").AsInt32();
+				var cooker_type = thing.Call("GetCookType").AsString();
+				content = Regex.Replace(content, @"\bNUM_ITEMS\b", num_items.ToString());
+				content = Regex.Replace(content, @"\bCOOKER_NAME\b", cooker_type);
+			}
+
+			if (thing is ServingCounter)
+			{
+				var item_name = thing.Call("GetServedItem").AsString();
+				content = Regex.Replace(content, @"\bITEM_NAME\b", item_name);
+			}
 			
-			SetText(_currentNode.Content, false);
+			SetText(content, false);
 		}
 
 		_currentResultIdx = 0;

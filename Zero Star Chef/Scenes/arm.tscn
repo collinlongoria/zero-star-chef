@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcy2mf6sd8rhy"]
+[gd_scene load_steps=4 format=3 uid="uid://dcy2mf6sd8rhy"]
 
 [ext_resource type="Script" uid="uid://dqh4suigdgmwm" path="res://Scripts/Arm.cs" id="1_kpgs2"]
 [ext_resource type="Texture2D" uid="uid://ckl15iutv60m8" path="res://Assets/arm.png" id="2_8hu3u"]
+[ext_resource type="Texture2D" uid="uid://dkliqw72tn47h" path="res://Assets/cover.png" id="3_8hu3u"]
 
 [node name="Arm" type="Node2D"]
 script = ExtResource("1_kpgs2")
@@ -11,4 +12,8 @@ position = Vector2(0, 24)
 texture = ExtResource("2_8hu3u")
 
 [node name="Item Sprite" type="Sprite2D" parent="Main Sprite"]
-position = Vector2(0, -28)
+position = Vector2(0, -30)
+
+[node name="Cover Sprite" type="Sprite2D" parent="Main Sprite/Item Sprite"]
+position = Vector2(0, -1)
+texture = ExtResource("3_8hu3u")

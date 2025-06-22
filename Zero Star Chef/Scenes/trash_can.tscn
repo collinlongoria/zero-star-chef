@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dm2c3s1fd88gk"]
+[gd_scene load_steps=4 format=3 uid="uid://dm2c3s1fd88gk"]
 
+[ext_resource type="Script" uid="uid://dgil0pnprnfg1" path="res://Scripts/TrashCan.cs" id="1_t3ghh"]
 [ext_resource type="Texture2D" uid="uid://ojskxr3opyie" path="res://Assets/trashcan.png" id="1_yk8j1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t3ghh"]
@@ -7,6 +8,7 @@ size = Vector2(16, 16)
 
 [node name="Trash Can" type="StaticBody2D"]
 y_sort_enabled = true
+script = ExtResource("1_t3ghh")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_yk8j1")

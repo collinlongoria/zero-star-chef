@@ -24,8 +24,62 @@
 			}
 		},
 		{
+			"id": "storage_grab_prompt",
+			"content": "Take the item from the countertop?",
+			"results": {
+				"Yes": "grab_item",
+				"No": "end"
+			}
+		},
+		{
+			"id": "storage_empty",
+			"content": "There is nothing here.",
+			"results": {
+				"end":"end"
+			}
+		},
+		{
+			"id": "storage_switch_prompt",
+			"content": "Swap items with countertop?",
+			"results": {
+				"Yes": "switch_item",
+				"No": "end"
+			}
+		},
+		{
+			"id": "storage_store_prompt",
+			"content": "Store item on countertop?",
+			"results": {
+				"Yes": "switch_item",
+				"No": "end"
+			}
+		},
+		{
+			"id": "switch_prompt",
+			"content": "You already have something in your hand, toss it and switch it out?",
+			"results": {
+				"Yes": "switch_item",
+				"No": "end"
+			}
+		},
+		{
+			"id":"plate",
+			"content": "A nice stack of plates. Grab one?",
+			"results":{
+				"Yes": "grab_item",
+				"No": "end"
+			}
+		},
+		{
 			"id": "bread",
 			"content": "Fluffy thing that is dry on the outside, and squishy on the inside. It looks perfect for holding edible things together.",
+			"results": {
+				"end": "grab_prompt"
+			}
+		},
+		{
+			"id": "mixed_vegetables",
+			"content": "Dude... I used to watch these guys sing silly songs and teach me about Jesus...",
 			"results": {
 				"end": "grab_prompt"
 			}
@@ -52,7 +106,7 @@
 			}
 		},
 		{
-			"id": "mixed lettuce",
+			"id": "mixed_lettuce",
 			"content": "A bunch of green leaves. They look crunchy, and taste like grass.",
 			"results": {
 				"end": "grab_prompt"
@@ -103,6 +157,13 @@
 		{
 			"id": "salt",
 			"content": "White sandy grit. Despite its look, it doesn’t taste like sand. Is this sugar?",
+			"results": {
+				"end": "grab_prompt"
+			}
+		},
+		{
+			"id": "dough",
+			"content": "A big blobby blob. Looks easily moldable.",
 			"results": {
 				"end": "grab_prompt"
 			}
@@ -193,7 +254,7 @@
 		},
 		{
 			"id": "beef_wellington",
-			"content": "Smother some steak with the fungi, then cover that in some dough. Put it in the oven.",
+			"content": "Smother some steak with the fungi, then cover that in some flat dough. Put it in the oven.",
 			"results": {
 				"end": "end"
 			}
@@ -255,10 +316,158 @@
 			}
 		},
 		{
-			"id": "",
-			"content": "",
+			"id": "cooker_no_item",
+			"content": "There is currently NUM_ITEMS ingredients in this COOKER_NAME",
 			"results": {
 				"end": "end"
+			}
+		},
+		{
+			"id": "cooker_plate_hint",
+			"content": "This COOKER_NAME is currently cooking. You'll need a plate to remove the dish.",
+			"results": {
+				"end": "end"
+			}
+		},
+		{
+			"id": "cooker_item",
+			"content": "There is currently NUM_ITEMS ingredients in this COOKER_NAME, what should I do?",
+			"results": {
+				"Add Ingredient":"insert_item",
+				"Empty":"empty_prompt",
+				"Leave":"end"
+			}
+		},
+		{
+			"id": "cooker_cooking",
+			"content": "Remove dish from this COOKER_NAME?",
+			"results": {
+				"Yes":"grab_item",
+				"No":"end"
+			}
+		},
+		{
+			"id": "empty_prompt",
+			"content": "Are you sure you want to empty this COOKER_NAME? NUM_ITEMS ingredients will be trashed.",
+			"results": {
+				"Yes":"empty_items",
+				"No":"end"
+			}
+		},
+		{
+			"id": "cooker_plate",
+			"content": "There is no reason to put a plate in a COOKER_NAME. It would be gross to eat.",
+			"results": {
+				"end": "end"
+			}
+		},
+		{
+			"id": "trash_prompt",
+			"content": "Throw held item in the trash? It will be destroyed.",
+			"results": {
+				"Yes": "trash",
+				"No":"end",
+				"Ask":"trash_question"
+			}
+		},
+		{
+			"id": "trash_mad",
+			"content": "Trash Can: Listen, bub. Come back when you have some trash to give me.",
+			"results": {
+				"end":"end"
+			}
+		},
+		{
+			"id": "trash_question",
+			"content": "Trash Can: My name is Trash Can. I work part time here. See you around!",
+			"results": {
+				"end":"end"
+			}
+		},
+		{
+			"id": "submit_dish",
+			"content": "Is this the dish you'd like to send out?",
+			"results": {
+				"Send It!": "send",
+				"No":"end"
+			}
+		},
+		{
+			"id": "no_server",
+			"content": "There is no waiter here right now.",
+			"results": {
+				"end":"end"
+			}
+		},
+		{
+			"id": "dmo_intro",
+			"content": "DMO Jo': Hey buddy, it's me, DMO Jo'. How are you?",
+			"results": {
+				"I love this job.":"dmo_love",
+				"I hate this job":"dmo_hate"
+			}
+		},
+		{
+			"id": "dmo_love",
+			"content": "DMO Jo': That is most certainly not true.",
+			"results": {
+				"end":"dmo_end"
+			}
+		},
+		{
+			"id": "dmo_hate",
+			"content": "DMO Jo': Makes sense.",
+			"results": {
+				"end":"dmo_end"
+			}
+		},
+		{
+			"id": "dmo_end",
+			"content": "DMO Jo': Alright bro, why don't we talk some more during your break? I have a gift for you.",
+			"results": {
+				"end":"end"
+			}
+		},
+		{
+			"id": "correct_dish",
+			"content": "Waiter: It looks like you made ITEM_NAME. Just what the customer ordered!",
+			"results": {
+				"end":"judged"
+			}
+		},
+		{
+			"id": "incorrect_dish",
+			"content": "Waiter: It looks like you made ITEM_NAME... The customer will NOT be pleased.",
+			"results": {
+				"end":"judged"
+			}
+		},
+		{
+			"id": "break_time",
+			"content": "Time for my 15 minute break. I should talk to DMO Jo'. He said he wanted to talk to me.",
+			"results":{
+				"end":"end"
+			}
+		},
+		{
+			"id": "surprise1",
+			"content": "Hey bro. I noticed you've been a little slow today. You're usually faster...",
+			"results":{
+				"end":"surprise2"
+			}
+		},
+		{
+			"id": "surprise2",
+			"content": "But hey, I get it. Some days you just can't operate at full power. I wanted to give you something that might help.",
+			"results":{
+				"end":"surprise3"
+			}
+		},
+		{
+			"id": "surprise3",
+			"content": "These have always worked for me. Just take two of them with water. Have a chill one, bro.",
+			"results":{
+				"end":"end_surprise"
 			}
 		}
 	]

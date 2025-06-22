@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://clc3y4nvhil1w"]
+
+[ext_resource type="Script" uid="uid://ct7k85i02heph" path="res://Scripts/EndScreen.cs" id="1_8yanq"]
+[ext_resource type="FontFile" uid="uid://bogbqrbbno4h5" path="res://Assets/Jersey15-Regular.ttf" id="2_fi2y0"]
+[ext_resource type="PackedScene" uid="uid://dwms7fp15ag7e" path="res://Scenes/rating.tscn" id="3_em7vc"]
+[ext_resource type="FontFile" uid="uid://copbd5jwo33r" path="res://Assets/Tiny5-Regular.ttf" id="4_4suit"]
+[ext_resource type="Theme" uid="uid://buovg0m5qibqp" path="res://Resources/base_font.tres" id="5_wqrt5"]
+
+[node name="End Screen" type="Node2D"]
+script = ExtResource("1_8yanq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 264.0
+offset_top = 32.0
+offset_right = 384.0
+offset_bottom = 61.0
+theme_override_fonts/font = ExtResource("2_fi2y0")
+theme_override_font_sizes/font_size = 28
+text = "FINAL SCORE"
+
+[node name="Rating" parent="." instance=ExtResource("3_em7vc")]
+position = Vector2(-128, 92)
+scale = Vector2(4, 4)
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 160.0
+offset_top = 192.0
+offset_right = 480.0
+offset_bottom = 252.0
+theme_override_fonts/font = ExtResource("4_4suit")
+text = "This is where the text goes"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="."]
+offset_left = 264.0
+offset_top = 312.0
+offset_right = 389.0
+offset_bottom = 345.0
+theme = ExtResource("5_wqrt5")
+text = "Main Menu"

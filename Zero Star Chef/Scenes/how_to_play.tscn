@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://s1xoqiq8yuhg"]
+
+[ext_resource type="Texture2D" uid="uid://c110h52q7k1w8" path="res://Assets/rules.png" id="1_hl01w"]
+[ext_resource type="Script" uid="uid://lftgf6ogwcph" path="res://Scripts/HowToPlay.cs" id="1_wpr6w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpr6w"]
+atlas = ExtResource("1_hl01w")
+region = Rect2(0, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlnx3"]
+atlas = ExtResource("1_hl01w")
+region = Rect2(0, 360, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lonyb"]
+atlas = ExtResource("1_hl01w")
+region = Rect2(0, 720, 640, 360)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7d32w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpr6w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlnx3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lonyb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="How To Play" type="Node2D"]
+script = ExtResource("1_wpr6w")
+
+[node name="Rules" type="AnimatedSprite2D" parent="."]
+position = Vector2(320, 180)
+sprite_frames = SubResource("SpriteFrames_7d32w")

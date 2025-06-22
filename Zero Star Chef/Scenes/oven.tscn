@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://g2vh8u0n53lu"]
+[gd_scene load_steps=8 format=3 uid="uid://g2vh8u0n53lu"]
 
+[ext_resource type="Script" uid="uid://b0tvhmxnglaj5" path="res://Scripts/Oven.cs" id="1_02csr"]
 [ext_resource type="Texture2D" uid="uid://cary2vvu2i7xe" path="res://Assets/oven.png" id="1_daval"]
+[ext_resource type="PackedScene" uid="uid://debn7m0x5xg1p" path="res://Scenes/cooking_particles.tscn" id="3_0f1pq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oagqy"]
 atlas = ExtResource("1_daval")
@@ -29,9 +31,12 @@ size = Vector2(16, 16)
 
 [node name="Oven" type="StaticBody2D"]
 y_sort_enabled = true
+script = ExtResource("1_02csr")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0f1pq")
 
 [node name="Body" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_t3ghh")
+
+[node name="Cooking Particles" parent="." instance=ExtResource("3_0f1pq")]

@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://ljuvcckmlel8"]
+[gd_scene load_steps=4 format=3 uid="uid://ljuvcckmlel8"]
 
 [ext_resource type="Texture2D" uid="uid://ds0ebvbdabqf8" path="res://Assets/fullshelf.png" id="1_ndc05"]
+[ext_resource type="Script" uid="uid://cctgcclwv2rgg" path="res://Scripts/Shelf.cs" id="1_pp4lf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pp4lf"]
 size = Vector2(32, 40)
 
 [node name="Shelf" type="StaticBody2D"]
 y_sort_enabled = true
+script = ExtResource("1_pp4lf")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -4)

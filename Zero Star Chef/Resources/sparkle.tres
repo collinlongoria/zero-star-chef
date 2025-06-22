@@ -1,0 +1,16 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://faqppm0rcb6h"]
+
+[resource]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(8, 8, 1)
+direction = Vector3(0, 0, 0)
+gravity = Vector3(0, -10, 0)
+linear_accel_min = 12.8
+linear_accel_max = 12.8
+radial_accel_min = 4.0
+radial_accel_max = 4.0
+damping_min = 0.62
+damping_max = 0.62
+scale_min = 0.08
+scale_max = 0.15

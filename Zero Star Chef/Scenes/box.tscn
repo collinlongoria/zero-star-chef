@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://k04p6swrsyvp"]
+[gd_scene load_steps=6 format=3 uid="uid://k04p6swrsyvp"]
 
+[ext_resource type="Script" uid="uid://d1n2wdffn655y" path="res://Scripts/Box.cs" id="1_2jyye"]
 [ext_resource type="Texture2D" uid="uid://whprs2umvc2f" path="res://Assets/box2.png" id="1_ego7h"]
 [ext_resource type="Texture2D" uid="uid://hp83jpai2vqo" path="res://Assets/box.png" id="1_xkb4e"]
 
@@ -22,6 +23,7 @@ size = Vector2(16, 16)
 
 [node name="Box" type="StaticBody2D"]
 y_sort_enabled = true
+script = ExtResource("1_2jyye")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true

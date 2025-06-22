@@ -1,7 +1,209 @@
-[gd_scene load_steps=2 format=3 uid="uid://dslmhk28gu5dj"]
+[gd_scene load_steps=18 format=3 uid="uid://dslmhk28gu5dj"]
 
 [ext_resource type="PackedScene" uid="uid://crcjsnm4wxpux" path="res://Scenes/trip_effect.tscn" id="1_1rerr"]
+[ext_resource type="Script" uid="uid://deynsxrl3h60l" path="res://Scripts/Menu.cs" id="1_158mb"]
+[ext_resource type="Texture2D" uid="uid://6n3fi1netqqf" path="res://Assets/intro.png" id="2_xhh6f"]
+[ext_resource type="Theme" uid="uid://buovg0m5qibqp" path="res://Resources/base_font.tres" id="3_cayip"]
+[ext_resource type="FontFile" uid="uid://bogbqrbbno4h5" path="res://Assets/Jersey15-Regular.ttf" id="5_wwsa2"]
+[ext_resource type="Texture2D" uid="uid://dwqjt1vscover" path="res://icon.svg" id="6_6swd7"]
+[ext_resource type="Texture2D" uid="uid://v672gidc1s65" path="res://Assets/ya-flunked.png" id="7_7qvly"]
+[ext_resource type="Texture2D" uid="uid://cqut1n1rytxbc" path="res://Assets/82-Unseen.png" id="8_rfqti"]
+[ext_resource type="Texture2D" uid="uid://bhsy6q5noxe6o" path="res://Assets/GWJ-Full-Logo-noBG-4k.png" id="9_g8i7c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cayip"]
+atlas = ExtResource("2_xhh6f")
+region = Rect2(0, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_158mb"]
+atlas = ExtResource("2_xhh6f")
+region = Rect2(0, 360, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwsa2"]
+atlas = ExtResource("2_xhh6f")
+region = Rect2(0, 720, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsrd8"]
+atlas = ExtResource("2_xhh6f")
+region = Rect2(0, 1080, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbdvm"]
+atlas = ExtResource("2_xhh6f")
+region = Rect2(0, 1440, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3rjx"]
+atlas = ExtResource("2_xhh6f")
+region = Rect2(0, 1800, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6swd7"]
+atlas = ExtResource("2_xhh6f")
+region = Rect2(0, 2160, 640, 360)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7qvly"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cayip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_158mb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwsa2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsrd8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbdvm")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_q3rjx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6swd7")
+}],
+"loop": false,
+"name": &"default",
+"speed": 2.0
+}]
 
 [node name="Menu" type="Node2D"]
+script = ExtResource("1_158mb")
 
-[node name="Trip Effect" parent="." instance=ExtResource("1_1rerr")]
+[node name="Main" type="CanvasLayer" parent="."]
+
+[node name="Trip Effect" parent="Main" instance=ExtResource("1_1rerr")]
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Logo" type="AnimatedSprite2D" parent="Main"]
+position = Vector2(320, 180)
+sprite_frames = SubResource("SpriteFrames_7qvly")
+autoplay = "default"
+frame = 6
+frame_progress = 1.0
+metadata/_edit_lock_ = true
+
+[node name="Control" type="Control" parent="Main"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main/Control"]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 267.0
+offset_right = 496.0
+offset_bottom = 322.0
+alignment = 1
+
+[node name="PlayButton" type="Button" parent="Main/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_cayip")
+text = "Play"
+
+[node name="CreditsButton" type="Button" parent="Main/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_cayip")
+text = "Credits"
+
+[node name="ExitButton" type="Button" parent="Main/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_cayip")
+text = "Exit"
+
+[node name="Credits" type="CanvasLayer" parent="."]
+layer = 2
+visible = false
+
+[node name="Control" type="Control" parent="Credits"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Credits/Control"]
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Credits/Control"]
+layout_mode = 0
+offset_left = 169.0
+offset_top = 32.0
+offset_right = 489.0
+offset_bottom = 393.0
+theme_override_fonts/font = ExtResource("5_wwsa2")
+theme_override_font_sizes/font_size = 24
+text = "Credits
+
+Game by Collin Longoria
+for the
+                                               #82
+
+Theme:"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Credits/Control"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 96.0
+offset_bottom = 65.0
+theme = ExtResource("3_cayip")
+text = "<"
+
+[node name="Label2" type="Label" parent="Credits/Control"]
+offset_left = 161.0
+offset_top = 116.0
+offset_right = 289.0
+offset_bottom = 141.0
+theme = ExtResource("3_cayip")
+theme_override_colors/font_color = Color(0.278431, 0.54902, 0.74902, 1)
+theme_override_fonts/font = ExtResource("5_wwsa2")
+theme_override_font_sizes/font_size = 24
+text = "Made in Godot"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Credits/Control"]
+position = Vector2(145, 128)
+scale = Vector2(0.1875, 0.1875)
+texture = ExtResource("6_6swd7")
+
+[node name="Ya-flunked" type="Sprite2D" parent="Credits/Control"]
+position = Vector2(477, 276)
+scale = Vector2(0.107558, 0.106312)
+texture = ExtResource("7_7qvly")
+
+[node name="82-unseen" type="Sprite2D" parent="Credits/Control"]
+position = Vector2(325, 256)
+scale = Vector2(0.0589815, 0.0613636)
+texture = ExtResource("8_rfqti")
+
+[node name="Gwj-full-logo-noBg-4k" type="Sprite2D" parent="Credits/Control"]
+position = Vector2(401, 152)
+scale = Vector2(0.043, 0.0480556)
+texture = ExtResource("9_g8i7c")
+
+[node name="Label3" type="Label" parent="Credits/Control"]
+offset_left = -36.0
+offset_top = 264.0
+offset_right = 284.0
+offset_bottom = 360.0
+theme_override_fonts/font = ExtResource("5_wwsa2")
+theme_override_font_sizes/font_size = 18
+text = "Fonts Used:
+Tiny5 by Stefan Schmidt
+Jersey 15 by Sarah Cadigan-Fried
+(OTL License)"
+horizontal_alignment = 1

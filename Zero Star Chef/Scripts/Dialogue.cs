@@ -2,7 +2,6 @@ using Godot;
 using System;
 using Godot.Collections;
 
-[GlobalClass]
 public partial class DialogueNode(string id = "", string content = "", Dictionary<string, string> results = null)
     : Resource
 {
@@ -23,7 +22,7 @@ public partial class Dialogue : Node
 {
     public static Dialogue Instance;
 
-    [Export] private Godot.Collections.Dictionary<string, DialogueNode> _dialogueNodes = new Godot.Collections.Dictionary<string, DialogueNode>();
+    private Godot.Collections.Dictionary<string, DialogueNode> _dialogueNodes = new Godot.Collections.Dictionary<string, DialogueNode>();
     
     public override void _Ready()
     {

@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbnk8llelunqx"]
+[gd_scene load_steps=8 format=3 uid="uid://bbnk8llelunqx"]
 
+[ext_resource type="Script" uid="uid://ctxxylosd4j1k" path="res://Scripts/MixingBowl.cs" id="1_8kewj"]
 [ext_resource type="Texture2D" uid="uid://8ff2nv7m85qq" path="res://Assets/mixingbowl.png" id="1_orf2k"]
+[ext_resource type="PackedScene" uid="uid://debn7m0x5xg1p" path="res://Scenes/cooking_particles.tscn" id="3_g5nqj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ysf0d"]
 atlas = ExtResource("1_orf2k")
@@ -29,9 +31,12 @@ size = Vector2(16, 16)
 
 [node name="Mixing Bowl" type="StaticBody2D"]
 y_sort_enabled = true
+script = ExtResource("1_8kewj")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_g5nqj")
 
 [node name="Body" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_t3ghh")
+
+[node name="Cooking Particles" parent="." instance=ExtResource("3_g5nqj")]

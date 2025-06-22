@@ -2,7 +2,7 @@
   "items":[
     {
       "Name":"Plate",
-      "Description":"A stack of neatly stacked plates.",
+      "Description":"plate",
       "Sprite":"plate.png"
     },
     {
@@ -101,9 +101,94 @@
       "Sprite":"ingredient.png"
     },
     {
-      "Name":"",
-      "Description":"",
+      "Name":"Dough",
+      "Description":"dough",
       "Sprite":"ingredient.png"
+    },
+    {
+      "Name":"Mixed Vegetables",
+      "Description":"mixed_vegetables",
+      "Sprite":"ingredient.png"
+    },
+    {
+      "Name":"Undercooked Slop",
+      "Description":"",
+      "Sprite":"undercookedslop.png"
+    },
+    {
+      "Name":"Burnt Sh#t",
+      "Description":"",
+      "Sprite":"burnsht.png"
+    },
+    {
+      "Name":"Unknown Junk",
+      "Description":"",
+      "Sprite":"unknownjunk.png"
+    },
+    {
+      "Name":"Cheeseburger",
+      "Description":"cheeseburger",
+      "Sprite":"cheeseburger.png"
+    },
+    {
+      "Name":"House Salad",
+      "Description":"house_salad",
+      "Sprite":"housesalad.png"
+    },
+    {
+      "Name":"Fruit Salad",
+      "Description":"fruit_salad",
+      "Sprite":"fruitsalad.png"
+    },
+    {
+      "Name":"Cucumber Salad",
+      "Description":"cucumber_salad",
+      "Sprite":"cucumbersalad.png"
+    },
+    {
+      "Name":"Beef Wellington",
+      "Description":"beef_wellington",
+      "Sprite":"beefwellington.png"
+    },
+    {
+      "Name":"Chicken Marsala",
+      "Description":"chicken_marsala",
+      "Sprite":"chickenmarsala.png"
+    },
+    {
+      "Name":"Spaghetti With Balls",
+      "Description":"spaghetti_with_balls",
+      "Sprite":"spaghetti.png"
+    },
+    {
+      "Name":"Mac And Cheese",
+      "Description":"mac_and_cheese",
+      "Sprite":"macandcheese.png"
+    },
+    {
+      "Name":"Tomato Soup",
+      "Description":"tomato_soup",
+      "Sprite":"tomatosoup.png"
+    },
+    {
+      "Name":"Stir Fry",
+      "Description":"stir_fry",
+      "Sprite":"stirfry.png"
+    },
+    {
+      "Name":"Shortbread Cookies",
+      "Description":"shortbread_cookies",
+      "Sprite":"shortbreadcookie.png"
+    },
+    {
+      "Name":"Candied Figs",
+      "Description":"candied_figs",
+      "Sprite":"candiedfruit.png"
+    },
+    {
+      "Name":"Blueberry Tart",
+      "Description":"blueberry_tart",
+      "Sprite":"blueberrytart.png"
     }
   ]
 }

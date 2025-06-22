@@ -3,6 +3,8 @@ using System;
 
 public partial class TripEffect : ColorRect
 {
+	[Export] public float Alpha = 1.0f;
+	
 	private ShaderMaterial _shader;
 
 	public override void _Ready()
@@ -18,5 +20,7 @@ public partial class TripEffect : ColorRect
 		
 		var res = GetViewport().GetVisibleRect().Size;
 		_shader.SetShaderParameter("resolution", res);
+		
+		_shader.SetShaderParameter("alpha", Alpha);
 	}
 }

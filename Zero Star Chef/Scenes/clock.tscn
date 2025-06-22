@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bd06v06vri4tu"]
+
+[ext_resource type="Texture2D" uid="uid://djwv2bdtej4yn" path="res://Assets/clock.png" id="1_pdqta"]
+[ext_resource type="Script" uid="uid://dwdcsr1gkcbuu" path="res://Scripts/Clock.cs" id="2_1ixnv"]
+[ext_resource type="Texture2D" uid="uid://doedcrm08a746" path="res://Assets/clockhand.png" id="2_ga67c"]
+
+[node name="Clock" type="Sprite2D"]
+texture = ExtResource("1_pdqta")
+script = ExtResource("2_1ixnv")
+HandJointPath = NodePath("Hand Joint")
+
+[node name="Hand Joint" type="Node2D" parent="."]
+rotation = 3.14159
+
+[node name="Hand" type="Sprite2D" parent="Hand Joint"]
+position = Vector2(0, 3)
+texture = ExtResource("2_ga67c")

@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://be4n8ibfe3s0y"]
+[gd_scene load_steps=8 format=3 uid="uid://be4n8ibfe3s0y"]
 
+[ext_resource type="Script" uid="uid://cxvgb8hbchngr" path="res://Scripts/DmoJoe.cs" id="1_kvlfm"]
 [ext_resource type="Texture2D" uid="uid://ca64pp6ikur" path="res://Assets/dmo.png" id="1_qq2qp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kvlfm"]
@@ -40,6 +41,7 @@ animations = [{
 size = Vector2(16, 16)
 
 [node name="DMO Joe" type="StaticBody2D"]
+script = ExtResource("1_kvlfm")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true

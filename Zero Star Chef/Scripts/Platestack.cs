@@ -10,5 +10,6 @@ public partial class Platestack : StaticBody2D
 
 	public void Interact()
 	{
+		SignalBus.Instance.EmitDialogueRequest("plate");
 	}
 }

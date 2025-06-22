@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://debn7m0x5xg1p"]
+
+[ext_resource type="Texture2D" uid="uid://d1lydnn6vfv7v" path="res://Assets/smoke.png" id="1_swtkk"]
+[ext_resource type="Script" uid="uid://bj483l8uxjj5e" path="res://Scripts/CookingParticles.cs" id="2_gqwgn"]
+
+[node name="Cooking Particles" type="GPUParticles2D"]
+emitting = false
+amount = 6
+texture = ExtResource("1_swtkk")
+trail_lifetime = 4.0
+script = ExtResource("2_gqwgn")
